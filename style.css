@@ -1,0 +1,150 @@
+.logo {
+  height: 180px;
+  width: auto;
+}
+
+.navbar {
+  height: 90px;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.nav-link {
+  color: #243224;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+  background: rgba(202, 171, 161, 0.15);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(162, 45, 10, 0.25);
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  background:
+  radial-gradient(
+    circle at top right,
+    #f5bb8e,
+    #bcf0a6 60%
+  );
+}
+
+:root {
+  --primary: #4b7d3f;
+  --primary-light: #eaf6e6;
+  --accent: #a22d0a;
+  --accent-light: #fbe9de;
+  --text: #243224;
+}
+
+.hero-title{
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.hero-title::after{
+  content:"";
+  display:block;
+  width:180px;
+  height:6px;
+  background:var(--primary);
+  border-radius:50px;
+  margin-top:15px;
+}
+
+.highlight{
+  color: var(--accent);
+}
+
+.card{
+  border:none;
+  border-radius:24px;
+  background:#a22d0a49;
+  color: #243224;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.btn-success{
+  background: var(--primary);
+  border:none;
+}
+
+.btn-success:hover{
+  background:#3b6432;
+}
+
+.btn-outline-success{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+.btn-outline-success:hover{
+  background:var(--accent);
+  color:white;
+}
+
+.step-num{
+  width: 2.2rem;
+  height: 2.2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#a22d0a;
+  color:white;
+  font-weight:700;
+}
+
+.cta-section{
+  background: linear-gradient(
+    135deg,
+    #4b7d3f,
+    #6fa75f
+  );
+}
+
+.login-card {
+  max-width: 420px;
+}
+
+.form-panel,
+.debug-box {
+  display: none;
+}
+
+.form-panel.active {
+  display: block;
+}
+
+.activity-card {
+  max-width: 560px;
+}
+
+.step-num,
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+}
