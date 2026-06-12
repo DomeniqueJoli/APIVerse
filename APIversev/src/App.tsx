@@ -1,4 +1,3 @@
-import ListGroup from "./Components/ListGroup";
 import NavBar from "./Components/NavBar"
 
 function App(){
@@ -14,15 +13,6 @@ export default App;
 
 // <!DOCTYPE html>
 // <html lang="pt-BR">
-
-// <head>
-//   <meta charset="UTF-8">
-//   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//   <title>APIverse</title>
-//   <link class="favicon" rel="icon" type="image/png" href="images/galaxia.png">
-//   <link rel="stylesheet" href="App/style.css">
-//   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-// </head>
 
 // <body>
 //   <nav class="navbar">
@@ -64,5 +54,4 @@ export default App;
 //       </div>
 //     </section>
 
-//     <footer>APIverse © 2026</footer>
 // </html>
