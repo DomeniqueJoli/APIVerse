@@ -1,5 +1,0 @@
-create table tarefas (
-    id serial primary key,
-    descricao text,
-    data_criacao timestamp
-)
