@@ -1,6 +1,7 @@
-import logo from '../assets/galaxia.png'
+import logo from '../../assets/galaxia.png'
 
 function NavBar() {
+    
     return(
         <nav className="navbar">
             <div className="nav-left">
