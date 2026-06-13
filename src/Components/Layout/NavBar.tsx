@@ -1,4 +1,5 @@
 import logo from '../../assets/galaxia.png'
+import { Link } from "react-router-dom";
 
 function NavBar() {
     
@@ -8,7 +9,7 @@ function NavBar() {
                 <img src={logo} className="logo"/>
                 <div className="nav-links">
                     <a href="index.html">Início</a>
-                    <a href="App/Categorias/categorias.html">Explorar APIs</a>
+                    <Link to="/categorias">Explorar APIs</Link>
                     <a href="App/info.html">Sobre</a>
                 </div>
             </div>
