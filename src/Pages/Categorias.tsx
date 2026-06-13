@@ -1,17 +1,13 @@
 import NavBar from "../Components/Layout/NavBar";
+import SearchBar from "../Components/UI/SearchBar";
 import Footer from "../Components/Layout/Footer";
 
 function Categorias(){
     return(
         <>
         <NavBar/>
+        <SearchBar/>
         <section className="features">
-        <h2>Explore o universo das API's</h2>
-
-        <div className="container-search-bar">
-            <input type="text" className="search-bar" placeholder="Pesquise uma API..."/>
-        </div>
-
         <div className="cards">
             <div className="card">
                 <h3>Desenvolvimento</h3>
