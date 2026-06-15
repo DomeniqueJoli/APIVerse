@@ -1,8 +1,12 @@
 import NavBar from "../Components/Layout/NavBar";
 import SearchBar from "../Components/UI/SearchBar";
 import Footer from "../Components/Layout/Footer";
+import { Link, useNavigate } from "react-router-dom";
+// import PageEntretenimento from "../Features/Categorias/Entretenimento/PageEntretenimento";
 
 function Categorias(){
+    const navigate = useNavigate();
+    
     return(
         <>
         <NavBar/>
@@ -13,7 +17,7 @@ function Categorias(){
                 <h3>Desenvolvimento</h3>
             </div>
 
-            <div className="card">
+            <div className="card" onClick={() => navigate("/Categorias/Entretenimento")}>
                 <h3>Entretenimento</h3>
             </div>
 

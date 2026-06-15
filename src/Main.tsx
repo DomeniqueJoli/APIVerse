@@ -4,15 +4,21 @@ import App from './App'
 import './style.css'
 import Info from './Pages/Info'
 import Cadastro from './Pages/Login/Cadastro'
+import Login from './Pages/Login/Login'
+import Categorias from './Pages/Categorias'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageEntretenimento from './Features/Categorias/Entretenimento/PageEntretenimento'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/info" element={<Info/>} />
-        <Route path="/cadastro" element={<Cadastro/>} />
+        <Route path="/Info" element={<Info/>} />
+        <Route path="/Cadastro" element={<Cadastro/>} />
+        <Route path="/Login" element={<Login/>} />
+        <Route path="/Categorias" element={<Categorias/>} />
+        <Route path="/Categorias/Entretenimento" element={<PageEntretenimento/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

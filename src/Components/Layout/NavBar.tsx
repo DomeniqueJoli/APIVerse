@@ -12,12 +12,7 @@ function NavBar() {
                     <Link to="/categorias">Explorar APIs</Link>
                     <a href="App/info.html">Sobre</a>
                 </div>
-            </div>
-
-            <div className="nav-right">
-            <a href="App/Login/login.html" className="btn-secondary-nav">Entrar</a>
-            <a href="App/Login/cadastro.html" className="btn-primary-nav">Cadastrar</a>
-            </div>
+            </div>  
         </nav>
     )
 }
