@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+body{
+  background:
+  radial-gradient(circle at top, rgba(37, 12, 97, 0.35), transparent 35%),
+  radial-gradient(circle at bottom right, rgba(255,159,28,.12), transparent 30%),
+  linear-gradient(180deg,#1b1435 0%,#140f2d 40%,#0f1224 100%);
+
+  color:white;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
+
+.overview-title {
+  font-family: 'Archivo Black', sans-serif;
+  height: 95px;
+  font-size: clamp(3rem, 4.6vw, 5rem);
+  background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.overview-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #b0a8c8;
+  max-width: 1000px;
+}
+
+.feature-section{
+    padding:90px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+.reverse{
+    flex-direction:row-reverse;
+}
+
+.feature-text{
+    flex:1;
+}
+
+.feature-tag{
+    color:#9f7cff;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.tags span i {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  color: #f89408;
+}
+
+.feature-text h2{
+    margin-top:15px;
+    margin-bottom:20px;
+    font-size:2.5rem;
+}
+
+.feature-text p{
+    line-height:1.8;
+    opacity:.9;
+}
+
+/* CARDS */
+
+.feature-card{
+    flex:1;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:35px;
+    backdrop-filter:blur(10px);
+}
+
+.feature-card h3{
+    margin-bottom:20px;
+}
+
+.feature-card ul{
+    padding-left:20px;
+}
+
+.feature-card li{
+    margin-bottom:10px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.tags span{
+    background:#6b2dff30;
+    border:1px solid #6b2dff50;
+    padding:10px 16px;
+    border-radius:30px;
+}
+
+/* CONQUISTAS */
+.achievements-header{
+  max-width: 1000px;
+  margin: auto;
+  white-space: nowrap;
+}
+    
+.achievements-header h2{
+    font-size:2.8rem;
+    margin:20px 0;
+}
+
+.badges{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.badge-card{
+    width:280px;
+    padding:30px;
+    border-radius:24px;
+    background:linear-gradient(
+        135deg,
+        #1b1435,
+        #6b2dff
+    );
+}
+
+.badge-card h3{
+    margin-bottom:15px;
+}
+
+/* FINAL */
+
+.final-section{
+    padding:120px 10%;
+    text-align:center;
+}
+
+.final-section h2{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.final-section p{
+    max-width:700px;
+    margin:15px auto;
+    line-height:1.8;
+    opacity:.9;
+}
+
+/* RESPONSIVO */
+
+@media (max-width:900px){
+
+    .feature-section{
+        flex-direction:column;
+    }
+
+    .reverse{
+        flex-direction:column;
+    }
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .feature-text h2{
+        font-size:2rem;
+    }
+
+    .final-section h2{
+        font-size:2.2rem;
+    }
+}   
