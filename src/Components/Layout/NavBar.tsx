@@ -1,4 +1,4 @@
-import logo from '../../assets/galaxia.png'
+import logo from '../../Assets/galaxia.png'
 import { Link } from "react-router-dom";
 
 function NavBar() {

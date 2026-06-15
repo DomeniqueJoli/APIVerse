@@ -1,10 +1,9 @@
-import NavBar from "./Components/Layout/NavBar"
-import logo from "./assets/galaxia.png"
+import { Link } from "react-router-dom";
+import logo from "./Assets/galaxia.png"
 
 function App(){
   return(
   <>
-  <NavBar/>
     <section className="hero">
       <div className="hero-content">
           <h1>Explore um universo<br/>de APIs</h1>
@@ -14,12 +13,8 @@ function App(){
               amplie seu conhecimento enquanto constrói projetos dinâmicos.
           </p>
           <div className="hero-buttons">
-              <a href="App/Categorias/categorias.html" className="btn-primary">
-                  Explorar APIs
-              </a>
-              <a href="App/info.html" className="btn-secondary">
-                  Saiba Mais
-              </a>
+              <Link to={"/Cadastro"} className="btn-primary">Explorar APIs</Link>
+              <Link to={"/Info"} className="btn-secondary">Saiba Mais</Link>
           </div>
       </div>
 
