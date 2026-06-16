@@ -21,7 +21,6 @@ function App(){
       <div className="hero-image">
           <img src={logo} className="hero-logo"/>
       </div>
-
     </section>
   </>
   )

@@ -8,9 +8,10 @@ function NavBar() {
             <div className="nav-left">
                 <img src={logo} className="logo"/>
                 <div className="nav-links">
-                    <a href="index.html">Início</a>
-                    <Link to="/categorias">Explorar APIs</Link>
-                    <a href="App/info.html">Sobre</a>
+                    <Link to="/App">Início</Link>
+                    <Link to="/Categorias">Explorar APIs</Link>
+                    <Link to="/Info">Sobre</Link>
+                    <Link to="/Perfil">Perfil</Link>
                 </div>
             </div>  
         </nav>

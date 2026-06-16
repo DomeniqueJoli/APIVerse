@@ -154,6 +154,9 @@ section{
   font-family:'Archivo Black',sans-serif;
   font-size:3.0rem;
   margin-bottom:50px;
+  background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .search-container {
