@@ -10,7 +10,6 @@ function NavBar() {
                 <div className="nav-links">
                     <Link to="/App">Início</Link>
                     <Link to="/Categorias">Explorar APIs</Link>
-                    <Link to="/Info">Sobre</Link>
                     <Link to="/Perfil">Perfil</Link>
                 </div>
             </div>  

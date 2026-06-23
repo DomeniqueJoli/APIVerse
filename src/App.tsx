@@ -13,8 +13,8 @@ function App(){
               amplie seu conhecimento enquanto constrói projetos dinâmicos.
           </p>
           <div className="hero-buttons">
-              <Link to={"/Cadastro"} className="btn-primary">Explorar APIs</Link>
-              <Link to={"/Info"} className="btn-secondary">Saiba Mais</Link>
+              <Link to={"/Cadastro"} className="btn-primary">Cadastro</Link>
+              <Link to={"/Login"} className="btn-secondary">Entrar</Link>
           </div>
       </div>
 

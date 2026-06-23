@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
-import "../../Styles/Cadastro.css"
-import Footer from "../../Components/Layout/Footer";
+import "../Styles/Cadastro.css"
+import Footer from "../Components/Layout/Footer";
 
 function Cadastro(){
     return(
         <>
         <h1 className="title-form">Inicie Sua Jornada</h1>
-        <p>Junte-se ao APIVerse e comece a explorar</p>
-
         <section className="cads">
         <div className="cads-container">
             <form>
             <div className="form-groups">
                 <label htmlFor="username">Username</label>
-                <input className="input-form" type="text" id="username" name="username" placeholder="seu_usuario" required/>
+                <input className="input-form" type="text" id="username" name="username" placeholder="Nome de usuário" required/>
             </div>
 
             <div className="form-groups">
@@ -28,22 +26,17 @@ function Cadastro(){
 
             <div className="form-groups">
                 <label htmlFor="perfilGit">Perfil do GitHub</label>
-                <input className="input-form" type="text" id="perfilGit" name="perfilGit"/>
+                <input className="input-form" type="text" id="perfilGit" name="perfilGit" placeholder="github.com/..."/>
             </div>
 
             <div className="form-groups">
                 <label htmlFor="perfilLinkedin">Perfil do Linkedin</label>
-                <input className="input-form" type="text" id="perfilLinkedin" name="perfilLinkedin"/>
+                <input className="input-form" type="text" id="perfilLinkedin" name="perfilLinkedin" placeholder="linkedin.com/..."/>
             </div>
 
             <div className="form-groups">
-                <label htmlFor="portfolio">Link do portfólio (opcional)</label>
+                <label htmlFor="portfolio">Link do portfólio</label>
                 <input className="input-form" type="url" id="portfolio" name="portfolio" placeholder="https://seusite.com"/>
-            </div>
-
-            <div className="form-groups">
-                <label htmlFor="bio">Bio (opcional)</label>
-                <textarea className="input-form" id="bio" name="bio" placeholder="Conte um pouco sobre você..." maxLength={150} rows={3}/>
             </div>
 
             <div className="form-groups">
@@ -67,24 +60,20 @@ function Cadastro(){
                 required
                 />
             </div>
-
+            
             <div className="form-groups">
-                <label htmlFor="foto">Foto de perfil (opcional)</label>
-                <input className="input-form"
-                type="file"
-                id="foto"
-                name="foto"
-                accept="image/*"
-                />
+                <label htmlFor="bio">Biografia</label>
+                <textarea className="input-form" id="bio" name="bio" placeholder="Conte um pouco sobre você..." maxLength={150} rows={3}/>
             </div>
 
             <button type="submit" className="btn-secondary-form">Criar conta</button>
             </form>
 
-            <p className="btn-primary-form">Já tem uma conta? <a href="/login">Entrar</a></p>
+            <p className="btn-primary-form">
+                Já tem uma conta? <Link to={"/login"}>Entrar</Link> 
+            </p>
         </div>
         </section>
-
         <Footer/>
         </>
     )
