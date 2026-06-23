@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+/****************************************************** geral *********************************************************/
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+  radial-gradient(circle at top, rgba(107,45,255,.35), transparent 35%),
+  radial-gradient(circle at bottom right, rgba(255,159,28,.12), transparent 30%),
+  linear-gradient(180deg,#1b1435 0%,#140f2d 40%,#0f1224 100%);
+
+  color:white;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
+
+/****************************************************** navbar *********************************************************/
+.logo{
+  height: 40px;
+  width: auto;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 8%;
+    backdrop-filter:blur(18px);
+    background:rgba(20,15,45,.55);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* esquerdo */
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+.nav-links a{
+    position:relative;
+    text-decoration:none;
+    color:#ececec;
+    font-weight:500;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#ffb347;
+}
+
+/**************************************************** hero landing *******************************************************/
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:80px;
+  padding:140px 8% 80px;
+}
+
+.hero-content{
+  flex:1;
+  max-width:650px;
+}
+
+.hero-image{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-logo{
+  width:650px;
+  filter:
+      drop-shadow(0 0 30px rgba(107,45,255,.8))
+      drop-shadow(0 0 50px rgba(255,159,28,.5));
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-12px);}
+}
+
+.hero-content h1{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content p{
+  font-size:1.2rem;
+  line-height:1.8;
+  color:#b0a8c8;
+  margin-bottom:40px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:40px;
+}
+
+.btn-primary{
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  padding:11px 30px;
+  border-radius:15px;
+  background:#f89408;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.btn-secondary{
+  text-decoration:none;
+  color:white;
+  padding:16px 45px;
+  border-radius:15px;
+  border:2px solid #6b2dff;
+}
+
+/****************************************************** footer *********************************************************/
+
+footer{
+  padding:40px;
+  text-align:center;
+  color:#9f9f9f;
+}

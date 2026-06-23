@@ -1,0 +1,13 @@
+.log {
+  display: flex;
+  justify-content: center;
+  padding: 0 10% 80px;
+}
+
+.log .cads-container {
+  max-width: 480px;
+}
+
+.log form {
+  grid-template-columns: 1fr;
+}   
