@@ -6,15 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { getApis } from "../Apis/GuruService";
 import ApiCard from "../Features/ApiCard";
 import "../Styles/Categorias.css";
-import {Code, Popcorn, FilmSlate, Toolbox, GraduationCap, GameController, Robot, CurrencyDollar, CloudSun} from "@phosphor-icons/react";
+import {Code, Popcorn, Toolbox, GraduationCap, Robot, CurrencyDollar, CloudSun} from "@phosphor-icons/react";
 
 const categorias = [
     { label: "Desenvolvimento", icon: <Code size={24} />, path: "" },
     { label: "Entretenimento", icon: <Popcorn size={24} />, path: "" },
-    { label: "Filmes e Séries", icon: <FilmSlate size={24} />, path: "" },
     { label: "Utilidades", icon: <Toolbox size={24} />, path: "" },
     { label: "Educação e Conhecimento", icon: <GraduationCap size={24} />, path: "" },
-    { label: "Games", icon: <GameController size={24} />, path: "" },
     { label: "Inteligência Artificial", icon: <Robot size={24} />, path: "" },
     { label: "Finanças", icon: <CurrencyDollar size={24} />, path: "" },
     { label: "Clima e Meio Ambiente", icon: <CloudSun size={24} />, path: "" },
@@ -65,15 +63,6 @@ function Categorias() {
                 agrupadas["Entretenimento"].push([nome, api]);
             }
 
-            // Filmes e Séries
-            if (
-                categoriasGuru.some((c: string) =>
-                    ["media", "entertainment"].includes(c)
-                )
-            ) {
-                agrupadas["Filmes e Séries"].push([nome, api]);
-            }
-
             // Utilidades
             if (
                 categoriasGuru.some((c: string) =>
@@ -90,15 +79,6 @@ function Categorias() {
                 )
             ) {
                 agrupadas["Educação e Conhecimento"].push([nome, api]);
-            }
-
-            // Games
-            if (
-                categoriasGuru.some((c: string) =>
-                    ["gaming", "games", "entertainment"].includes(c)
-                )
-            ) {
-                agrupadas["Games"].push([nome, api]);
             }
 
             // Inteligência Artificial
@@ -148,89 +128,46 @@ function Categorias() {
 
     return (
         <>
-            <NavBar />
-            <SearchBar
-                valor={busca}
-                onChange={setBusca}
-            />
-            <section className="features">
-                <ul className="category-list">
-                    {categorias.map((cat, i) => {
-                    const apisCategoria =
-                        (apisPorCategoria[cat.label] || []).filter(
-                            ([nome, api]) => {
-                                const versao =
-                                    api.versions?.[api.preferred];
-
-                                const titulo =
-                                    versao?.info?.title || nome;
-
-                                return (
-                                    nome
-                                        .toLowerCase()
-                                        .includes(busca.toLowerCase()) ||
-                                    titulo
-                                        .toLowerCase()
-                                        .includes(busca.toLowerCase())
-                                );
-                            }
-                        );
+        <NavBar />
+        <SearchBar valor={busca} onChange={setBusca}/>
+        <section className="features">
+            <ul className="category-list">
+                {categorias.map((cat, i) => {
+                const apisCategoria = (apisPorCategoria[cat.label] || []).filter(([nome, api]) => {
+                    const versao = api.versions?.[api.preferred];
+                    const titulo = versao?.info?.title || nome;
                         return (
-                            <li
-                                key={i}
-                                className={`category-item ${
-                                    aberto === i ? "aberto" : ""
-                                }`}
-                            >
-                                <div
-                                    className="category-item-header"
-                                    onClick={() => toggle(i)}
-                                >
-                                    <span className="category-item-icon">
-                                        {cat.icon}
-                                    </span>
-
-                                    <span className="category-item-label">
-                                        {cat.label}
-                                    </span>
-
-                                    <span className="category-item-arrow">
-                                        {aberto === i ? "▲" : "▼"}
-                                    </span>
-                                </div>
-
-                                {aberto === i && (
-                                    <div className="category-item-body">
-                                    <div className="api-list">
-                                        {apisCategoria.map(([nome, api]) => (
-                                            <ApiCard
-                                                key={nome}
-                                                nome={nome}
-                                                api={api}
-                                            />
-                                        ))}
-                                    </div>
-
-                                        {cat.path && (
-                                            <button
-                                                className="btn-secondary-form"
-                                                onClick={() =>
-                                                    navigate(cat.path)
-                                                }
-                                            >
-                                                Ver APIs
-                                            </button>
-                                        )}
-                                    </div>
-                                )}
-                            </li>
+                            nome
+                            .toLowerCase()
+                            .includes(busca.toLowerCase()) || titulo
+                            .toLowerCase()
+                            .includes(busca.toLowerCase())
                         );
-                    })}
-                </ul>
-            </section>
+                    });
 
-            <Footer />
-        </>
+                    return (
+                        <li key={i} className={`category-item ${aberto === i ? "aberto" : ""}`}>
+                            <div className="category-item-header" onClick={() => toggle(i)}>
+                                <span className="category-item-icon">{cat.icon}</span>
+                                <span className="category-item-label">{cat.label}</span>
+                                <span className="category-item-arrow">{aberto === i ? "▲" : "▼"}</span>
+                            </div>
+
+                            {aberto === i && (
+                                <div className="category-item-body">
+                                    <div className="api-list">
+                                        {apisCategoria.map(([nome, api]) => (<ApiCard key={nome} nome={nome} api={api}/>))}
+                                    </div>
+                                    {cat.path && (<button className="btn-secondary-form" onClick={() => navigate(cat.path)}>Ver APIs</button>)}
+                                </div>
+                            )}
+                        </li>
+                    );
+                })}
+            </ul>
+        </section>
+        <Footer/>
+    </>
     );
 }
 

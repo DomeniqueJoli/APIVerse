@@ -8,7 +8,7 @@ function NavBar() {
             <div className="nav-left">
                 <img src={logo} className="logo"/>
                 <div className="nav-links">
-                    <Link to="/App">Início</Link>
+                    <Link to="/">Início</Link>
                     <Link to="/Categorias">Explorar APIs</Link>
                     <Link to="/Perfil">Perfil</Link>
                 </div>
