@@ -13,6 +13,7 @@ function Cadastro(){
     const [senha, setSenha] = useState("")
     const [recupSenha, setRecupSenha] = useState("")
     const [biografia, setBiografia] = useState("")
+    const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
 
     const [mensagem, setMensagem] = useState("");
     const [tipoMensagem, setTipoMensagem] = useState<"sucesso" | "erro" | "">("");
@@ -31,6 +32,11 @@ function Cadastro(){
 
     async function handleSubmit(e:React.FormEvent) {
         e.preventDefault();
+
+        if (!usuario.id) {
+            setMensagem("Usuário não logado");
+            return;
+        }
 
         if (senha !== recupSenha) {
             setTipoMensagem("erro");
@@ -70,9 +76,8 @@ function Cadastro(){
 
         <section className="cads">
         <div className="cads-container">
-
         {mensagem && (<p className={`mensagem ${tipoMensagem}`}>{mensagem}</p>)}
-        
+
             <form onSubmit={handleSubmit} >
             <div className="form-groups">
                 <label htmlFor="username">Username</label>

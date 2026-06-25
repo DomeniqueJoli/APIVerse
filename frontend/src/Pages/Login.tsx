@@ -30,7 +30,7 @@ function Login(){
         if (response.ok) {
             setEmail("");
             setSenha("");
-
+            localStorage.setItem("usuario", JSON.stringify(data.usuario));
             navigate("/Categorias");
         }else {
         setTipoMensagem("erro");
@@ -44,10 +44,9 @@ function Login(){
 
         <section className="log">
         <div className="cads-container">
+        {mensagem && (<p className={`mensagem ${tipoMensagem}`}>{mensagem}</p>)}
+
             <form onSubmit={handleSubmit}>
-
-            {mensagem && (<p className={`mensagem ${tipoMensagem}`}>{mensagem}</p>)}
-
             <div className="form-groups">
                 <label htmlFor="email">Email</label>
                 <input value={email} onChange={e => setEmail(e.target.value)} className="input-form" type="email" id="email" name="email" placeholder="seu@email.com" required/>

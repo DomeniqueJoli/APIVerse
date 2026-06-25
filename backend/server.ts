@@ -89,6 +89,74 @@ app.put("/recuperar-senha", async (req, res) => {
     });
 });
 
+
+app.post("/projetos", async (req, res) => {
+  try {
+    const { nomeProjeto, apiUtilizada, descricao, tecnologiaFront, tecnologiaBack, repoGitHub, linkDemo, statusProjeto, equipe, usuarioId } = req.body;
+
+    if (!usuarioId) {
+      return res.status(400).json({ erro: "Usuário não informado" });
+    }
+
+    const usuarioExiste = await prisma.usuario.findUnique({
+      where: { id: Number(usuarioId) }
+    });
+
+    if (!usuarioExiste) {
+      return res.status(404).json({ erro: "Usuário não existe" });
+    }
+
+    const projeto = await prisma.projeto.create({
+      data: {
+        nomeProjeto,
+        apiUtilizada,
+        descricao,
+        tecnologiaFront,
+        tecnologiaBack,
+        repoGitHub,
+        linkDemo,
+        statusProjeto,
+        equipe,
+        usuarioId: Number(usuarioId)
+      }
+    });
+
+    return res.status(201).json(projeto);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ erro: "Erro ao cadastrar projeto" });
+  }
+});
+
+app.get("/projetos", async (req, res) => {
+  try {
+    const projetos = await prisma.projeto.findMany();
+    res.json(projetos);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ erro: "Erro ao buscar projeto" });
+  }
+});
+
+app.get("/usuarios/:id/perfil", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const usuario = await prisma.usuario.findUnique({
+      where: { id },
+      include: { projetos: true }
+    });
+
+    if (!usuario) {
+      return res.status(404).json({ erro: "Usuário não encontrado" });
+    }
+
+    return res.json(usuario);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ erro: "Erro ao buscar perfil" });
+  }
+});
+
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
