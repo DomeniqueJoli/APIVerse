@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Footer from "../Components/Layout/Footer";
+import { Link } from "react-router-dom";
 
 function RecupSenha(){
     const [erro, setErro] = useState("");
@@ -69,6 +70,7 @@ function RecupSenha(){
                 {erro && <span style={{ color: '#ff6b6b', fontSize: '0.85rem' }}>{erro}</span>}
 
                 <button type="submit" className="btn-secondary-form">Redefinir senha</button>
+                <p className="btn-primary-form">Retornar para o<Link to={"/Login"}> Login</Link></p>
             </form>
         </div>
         </section>

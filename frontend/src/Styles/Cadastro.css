@@ -102,11 +102,6 @@ textarea.input-form {
   color: rgba(167, 139, 250, 0.4);            /* placeholder no tom do lilás */
 }
 
-input[type="file"].input-form {
-  padding: 10px 16px;
-  cursor: pointer;
-  color: rgba(167, 139, 250, 0.7);
-}
 
 .form-groups label {
   font-size: 0.85rem;

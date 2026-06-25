@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/ApiCard.css";
+import { categoryPT } from "./ApiTranslate";
 
 interface ApiCardProps {
     nome: string;
@@ -37,7 +38,7 @@ function ApiCard({ nome, api }: ApiCardProps) {
                         <div className="api-info">
                             <strong>Categorias</strong>
                             <div className="tags">{categorias.map((cat: string) => (
-                                <span key={cat} className="tag">{cat.replace("_", " ")}</span>))}
+                                <span key={cat} className="tag">{categoryPT[cat] || cat.replace("_", " ")}</span>))}
                             </div>
                         </div>
                     )}

@@ -100,12 +100,13 @@
 }
 
 .api-use {
-    border: none;
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 10px;
     font-weight: 600;
-    color: white;
-    background: linear-gradient(135deg, #6b2dff, #8b5cf6);
     transition: .25s;
+    border:rgba(121, 81, 213, 0.963);
+    text-align: center;
+    color: white;
+    background: rgba(83, 20, 143, 0.353);
 }
