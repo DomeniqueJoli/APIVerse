@@ -1,11 +1,14 @@
 import NavBar from "../Components/Layout/NavBar";
 import Footer from "../Components/Layout/Footer";
 import "../Styles/Perfil.css"
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Perfil(){
 
     const [usuario, setUsuario] = useState<any>(null);
+    const navigate = useNavigate();
+    const [mensagem, setMensagem] = useState("");
 
     useEffect(() => {
         async function carregarPerfil() {
@@ -19,6 +22,16 @@ function Perfil(){
 
     if (!usuario) {
         return <p>Carregando...</p>;
+    }
+
+    async function deletarProjeto(id: number) {
+        const response = await fetch(`http://localhost:3000/projetos/${id}`, {
+            method: "DELETE"
+        });
+
+        if (response.ok) {
+            window.location.reload();
+        }
     }
 
     return(
@@ -44,6 +57,7 @@ function Perfil(){
                     </div>
                 </div>
 
+                <button className="btn-new-project" onClick={() => navigate("/CadastroDeProjeto")}> Criar Projeto </button>
                 
                 <div className="projects-grid">
                     {usuario.projetos.map((projeto:any) => (
@@ -51,6 +65,8 @@ function Perfil(){
                             <h3>{projeto.nomeProjeto}</h3>
                             <p>{projeto.descricao}</p>
                             <span className="project-status">{projeto.statusProjeto}</span>
+                            <button className="btn-edit" onClick={() => navigate(`/AtualizarProjeto/${projeto.id}`)}>Editar</button>
+                            <button className="btn-delete" onClick={() => deletarProjeto(projeto.id)}>Excluir</button>
                         </div>
                     ))}
                 </div>

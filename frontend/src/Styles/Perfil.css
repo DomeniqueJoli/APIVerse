@@ -89,6 +89,18 @@
 }
 
 /****************************************************** Projetos *********************************************************/
+.btn-new-project {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: .25s;
+    border:rgba(121, 81, 213, 0.963);
+    text-align: center;
+    color: white;
+    background: rgba(83, 20, 143, 0.353);
+}
+
 .projects-title{
     text-align:center;
     font-family:'Archivo Black',sans-serif;
@@ -130,6 +142,32 @@
     color:#c9b6ff;
     font-size:.85rem;
     font-weight:600;
+}
+
+.btn-edit {
+    margin-left: 1%;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: .25s;
+    border:rgba(121, 81, 213, 0.963);
+    text-align: center;
+    color: white;
+    background: rgba(83, 20, 143, 0.353);
+}
+
+.btn-delete {
+    margin-left: 1%;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: .25s;
+    border:rgba(121, 81, 213, 0.963);
+    text-align: center;
+    color: white;
+    background: #f89408;
 }
 
 /****************************************************** Sem projetos *********************************************************/
