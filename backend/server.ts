@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.send("API funcionando");
 });
 
-// cads
+// user post
 app.post("/usuarios", async (req, res) => {
   try {
     const {
@@ -46,6 +46,7 @@ app.post("/usuarios", async (req, res) => {
   }
 });
 
+// user get
 app.get("/usuarios", async (req, res) => {
   try {
     const usuarios = await prisma.usuario.findMany();
@@ -56,7 +57,7 @@ app.get("/usuarios", async (req, res) => {
   }
 });
 
-// log
+// log post
 app.post("/login", async (req, res) => {
     const { email, senha } = req.body;
 
@@ -84,6 +85,7 @@ app.post("/login", async (req, res) => {
     });
 });
 
+// post senha
 app.put("/recuperar-senha", async (req, res) => {
     const { email, senha } = req.body;
 
@@ -128,7 +130,7 @@ app.get("/usuarios/:id/perfil", async (req, res) => {
   }
 });
 
-// projetos
+// projeto post
 app.post("/projetos", async (req, res) => {
   try {
     const { nomeProjeto, apiUtilizada, descricao, tecnologiaFront, tecnologiaBack, repoGitHub, linkDemo, statusProjeto, equipe, usuarioId } = req.body;
@@ -167,6 +169,7 @@ app.post("/projetos", async (req, res) => {
   }
 });
 
+// projeto get
 app.get("/projetos", async (req, res) => {
   try {
     const projetos = await prisma.projeto.findMany();
@@ -177,6 +180,7 @@ app.get("/projetos", async (req, res) => {
   }
 });
 
+// projetos per user
 app.get("/usuarios/:id/projetos", async (req, res) => {
   const id = Number(req.params.id);
 
@@ -187,6 +191,7 @@ app.get("/usuarios/:id/projetos", async (req, res) => {
   res.json(projetos);
 });
 
+// projetos per id
 app.put("/projetos/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
@@ -233,6 +238,22 @@ app.put("/projetos/:id", async (req, res) => {
   }
 });
 
+// get projetos per id
+app.get("/projetos/:id", async (req, res) => {
+  const id = Number(req.params.id);
+
+  const projeto = await prisma.projeto.findUnique({
+    where: { id }
+  });
+
+  if (!projeto) {
+    return res.status(404).json({ erro: "Projeto não encontrado" });
+  }
+
+  res.json(projeto);
+});
+
+// projetos delete
 app.delete("/projetos/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
