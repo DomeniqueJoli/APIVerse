@@ -45,7 +45,7 @@ function Cadastro(){
         }
 
         if(senha === recupSenha){
-            const response = await fetch("http://apiverse-ypsu.onrender.com/usuarios",
+            const response = await fetch("https://apiverse-ypsu.onrender.com/usuarios",
             {
                 method: "POST",
                 headers:{"Content-Type":"application/json"},
