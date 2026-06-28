@@ -21,7 +21,7 @@ function RecupSenha(){
             return;
         }
 
-        const response = await fetch("http://localhost:3000/recuperar-senha", {
+        const response = await fetch("http://apiverse-ypsu.onrender.com/recuperar-senha", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

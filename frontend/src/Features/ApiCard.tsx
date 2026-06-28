@@ -15,7 +15,7 @@ function ApiCard({ nome, api }: ApiCardProps) {
     async function favoritarApi() {
             const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
             if (!usuario?.id) return;
-            const res = await fetch("http://localhost:3000/favoritos", {
+            const res = await fetch("http://apiverse-ypsu.onrender.com/favoritos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
