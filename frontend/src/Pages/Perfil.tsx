@@ -13,7 +13,7 @@ function Perfil(){
     useEffect(() => {
         async function carregarPerfil() {
             const usuarioLogado = JSON.parse(localStorage.getItem("usuario") || "{}");
-            const response = await fetch(`http://apiverse-ypsu.onrender.com/usuarios/${usuarioLogado.id}/perfil`);
+            const response = await fetch(`https://apiverse-ypsu.onrender.com/usuarios/${usuarioLogado.id}/perfil`);
             const data = await response.json();
             setUsuario(data);
         }
@@ -25,7 +25,7 @@ function Perfil(){
     }
 
     async function deletarProjeto(id: number) {
-        const response = await fetch(`http://apiverse-ypsu.onrender.com/projetos/${id}`, {
+        const response = await fetch(`https://apiverse-ypsu.onrender.com/projetos/${id}`, {
             method: "DELETE"
         });
 

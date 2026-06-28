@@ -30,7 +30,7 @@ function AtualizarProjeto() {
   useEffect(() => {
     async function carregarProjeto() {
       try {
-        const response = await fetch(`http://apiverse-ypsu.onrender.com/projetos/${id}`);
+        const response = await fetch(`https://apiverse-ypsu.onrender.com/projetos/${id}`);
         const data = await response.json();
 
         setNomeProjeto(data.nomeProjeto);
@@ -55,7 +55,7 @@ function AtualizarProjeto() {
   async function atualizarProjeto(e: React.FormEvent) {
     e.preventDefault();
 
-    const response = await fetch(`http://apiverse-ypsu.onrender.com/projetos/${id}`, {
+    const response = await fetch(`https://apiverse-ypsu.onrender.com/projetos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
