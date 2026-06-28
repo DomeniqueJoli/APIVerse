@@ -9,6 +9,7 @@ import Perfil from './Pages/Perfil'
 import CadsProjeto from './Pages/CadsProjeto'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RecupSenha from './Pages/RecupSenha'
+import AtualizarProjeto from './Pages/AtualizarProjeto'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/RecupSenha" element={<RecupSenha/>} />
         <Route path="/Perfil" element={<Perfil/>} />        
         <Route path="/CadastroDeProjeto" element={<CadsProjeto/>} />        
+        <Route path="/AtualizarProjeto/:id" element={<AtualizarProjeto/>} />        
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

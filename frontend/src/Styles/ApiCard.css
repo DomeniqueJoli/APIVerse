@@ -2,17 +2,13 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
-
     border-radius: 14px;
     padding: 18px 24px;
-
     transition: .3s;
 }
 
 .api-card:hover {
     border-color: rgba(107, 45, 255, 0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(158, 95, 206, 0.15);
 }
 
 .api-header {
@@ -39,10 +35,8 @@
 .api-btn {
     border: none;
     cursor: pointer;
-
     background: transparent;
     color: #a78bfa;
-
     font-weight: 600;
     transition: .25s;
 }
@@ -54,9 +48,7 @@
 .api-content {
     margin-top: 18px;
     padding-top: 18px;
-
     border-top: 1px solid rgba(255,255,255,.06);
-
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -84,34 +76,21 @@
 .tag {
     background: rgba(107, 45, 255, .15);
     border: 1px solid rgba(107, 45, 255, .25);
-
     color: #c4b5fd;
-
     padding: 4px 10px;
     border-radius: 999px;
-
     font-size: .8rem;
 }
 
 .api-doc {
     width: fit-content;
-
     text-decoration: none;
     color: white;
-
     padding: 10px 20px;
     border-radius: 10px;
-
     background: #f89408;
-
     font-weight: 600;
-
     transition: .25s;
-}
-
-.api-doc:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(248, 148, 8, .25);
 }
 
 .api-actions {
@@ -121,25 +100,13 @@
 }
 
 .api-use {
-    border: none;
     cursor: pointer;
-
     padding: 10px 20px;
     border-radius: 10px;
-
     font-weight: 600;
-    color: white;
-
-    background: linear-gradient(
-        135deg,
-        #6b2dff,
-        #8b5cf6
-    );
-
     transition: .25s;
-}
-
-.api-use:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(107, 45, 255, .3);
+    border:rgba(121, 81, 213, 0.963);
+    text-align: center;
+    color: white;
+    background: rgba(83, 20, 143, 0.353);
 }

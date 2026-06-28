@@ -17,5 +17,30 @@ model Usuario {
   linkPortfolio String
   senha String
   biografia String
+  projetos Projeto[]
   createdAt DateTime @default(now())
 }
+
+enum StatusProjeto {
+  EM_DESENVOLVIMENTO
+  MVP
+  CONCLUIDO
+  DESCONTINUADO
+}
+
+model Projeto {
+  id Int @id @default(autoincrement())
+  nomeProjeto String
+  apiUtilizada String
+  descricao String
+  tecnologiaFront String
+  tecnologiaBack String
+  repoGitHub String
+  linkDemo String
+  statusProjeto StatusProjeto
+  equipe String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  usuarioId Int
+  usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  }
