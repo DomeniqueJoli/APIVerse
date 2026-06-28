@@ -47,7 +47,7 @@ function CadsProjeto() {
                 return;
             }
     
-            const response = await fetch("http://localhost:3000/projetos",
+            const response = await fetch("http://apiverse-ypsu.onrender.com/projetos",
             {
                 method: "POST",
                 headers:{"Content-Type":"application/json"},
