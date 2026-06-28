@@ -17,8 +17,9 @@ model Usuario {
   linkPortfolio String
   senha String
   biografia String
-  projetos Projeto[]
   createdAt DateTime @default(now())
+  projetos Projeto[]
+  favoritas ApisFavoritas[]
 }
 
 enum StatusProjeto {
@@ -40,7 +41,15 @@ model Projeto {
   statusProjeto StatusProjeto
   equipe String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
   usuarioId Int
   usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
   }
+
+  model ApisFavoritas {
+  id Int @id @default(autoincrement())
+  nomeApi String
+  descricao String?
+  usuarioId Int
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+  createdAt DateTime @default(now())
+}

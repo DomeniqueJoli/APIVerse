@@ -59,6 +59,7 @@ function Perfil(){
 
                 <button className="btn-new-project" onClick={() => navigate("/CadastroDeProjeto")}> Criar Projeto </button>
                 
+                <h2 className="projects-title">Meus Projetos</h2>
                 <div className="projects-grid">
                     {usuario.projetos.map((projeto:any) => (
                         <div key={projeto.id} className="project-card">
@@ -70,6 +71,21 @@ function Perfil(){
                         </div>
                     ))}
                 </div>
+
+                <h2 className="projects-title">APIs Favoritas</h2>
+                <div className="favorites-grid">
+                {usuario.favoritas.length > 0 ? (usuario.favoritas.map((api:any) => (
+                <div className="favorite-card" key={api.id}>
+                    <h3>{api.nomeApi}</h3>
+                </div>
+                ))
+                ) : (
+                <div className="no-projects">
+                    Você ainda não favoritou nenhuma API.
+                </div>
+                )}
+
+            </div>
             </div>
         </section>
         <Footer/>
