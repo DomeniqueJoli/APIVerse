@@ -13,12 +13,12 @@
 
 .api-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 12px;
 }
 
 .api-header h3 {
+    flex: 1;
     margin: 0;
     color: white;
     font-size: 1.1rem;
@@ -83,10 +83,10 @@
 }
 
 .api-doc {
-    width: fit-content;
     text-decoration: none;
     color: white;
     padding: 10px 20px;
+    width: fit-content;
     border-radius: 10px;
     background: #f89408;
     font-weight: 600;
@@ -109,4 +109,47 @@
     text-align: center;
     color: white;
     background: rgba(83, 20, 143, 0.353);
+}
+
+.category-item-icon {
+    color: #f89408;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.category-item-label {
+    flex: 1;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.api-fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 8px 14px;
+
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+
+    color: white;
+    cursor: pointer;
+
+    transition: all .25s ease;
+}
+
+.api-fav:hover {
+    background: rgba(248, 148, 8, .08);
+    border-color: rgba(248, 148, 8, .35);
+    transform: translateY(-2px);
+}
+
+.api-fav.active {
+    background: rgba(248, 148, 8, .15);
+    border-color: rgba(248, 148, 8, .45);
 }

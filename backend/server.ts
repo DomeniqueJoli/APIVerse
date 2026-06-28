@@ -116,7 +116,7 @@ app.get("/usuarios/:id/perfil", async (req, res) => {
     const id = Number(req.params.id);
     const usuario = await prisma.usuario.findUnique({
       where: { id },
-      include: { projetos: true }
+      include: { projetos: true, favoritas: true}
     });
 
     if (!usuario) {
@@ -272,10 +272,64 @@ app.delete("/projetos/:id", async (req, res) => {
   }
 });
 
+// favs
+app.post("/favoritos", async (req, res) => {
+  try {
+    const { usuarioId, nomeApi, descricao } = req.body;
 
+    if (!usuarioId) {
+      return res.status(400).json({ erro: "Usuário não informado" });
+    }
 
+    const favorita = await prisma.apisFavoritas.create({
+      data: {
+        usuarioId: Number(usuarioId),
+        nomeApi,
+        descricao
+      }
+    });
 
+    return res.status(201).json(favorita);
 
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ erro: "Erro ao favoritar API" });
+  }
+});
+
+// favs do user
+app.get("/usuarios/:id/favoritos", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    const favoritas = await prisma.apisFavoritas.findMany({
+      where: { usuarioId: id }
+    });
+
+    return res.json(favoritas);
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ erro: "Erro ao buscar favoritas" });
+  }
+});
+
+// delete favs
+app.get("/usuarios/:id/favoritos", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    const favoritas = await prisma.apisFavoritas.findMany({
+      where: { usuarioId: id }
+    });
+
+    return res.json(favoritas);
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ erro: "Erro ao buscar favoritas" });
+  }
+});
 
 
 app.listen(3000, () => {
