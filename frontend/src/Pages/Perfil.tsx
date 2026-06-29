@@ -9,8 +9,14 @@ function Perfil(){
     const [usuario, setUsuario] = useState<any>(null);
     const navigate = useNavigate();
     const [mensagem, setMensagem] = useState("");
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuario") || "null");
 
     useEffect(() => {
+        if (!usuarioLogado?.id) {
+            navigate("/Login");
+            return;
+        }
+
         async function carregarPerfil() {
             const usuarioLogado = JSON.parse(localStorage.getItem("usuario") || "{}");
             const response = await fetch(`https://apiverse-ypsu.onrender.com/usuarios/${usuarioLogado.id}/perfil`);
@@ -61,20 +67,29 @@ function Perfil(){
                 
                 <h2 className="projects-title">Meus Projetos</h2>
                 <div className="projects-grid">
-                    {usuario.projetos.map((projeto:any) => (
+                    {usuario.projetos?.length > 0 ? (usuario.projetos.map((projeto:any) => (
                         <div key={projeto.id} className="project-card">
                             <h3>{projeto.nomeProjeto}</h3>
                             <p>{projeto.descricao}</p>
                             <span className="project-status">{projeto.statusProjeto}</span>
-                            <button className="btn-edit" onClick={() => navigate(`/AtualizarProjeto/${projeto.id}`)}>Editar</button>
-                            <button className="btn-delete" onClick={() => deletarProjeto(projeto.id)}>Excluir</button>
+                            <button className="btn-edit" onClick={() => navigate(`/AtualizarProjeto/${projeto.id}`)}>
+                                Editar
+                            </button>
+                            <button className="btn-delete" onClick={() => deletarProjeto(projeto.id)}>
+                                Excluir
+                            </button>
                         </div>
-                    ))}
+                    ))
+                ) : (
+                    <div className="no-projects">
+                        Você ainda não criou nenhum Projeto.
+                    </div>
+                )}
                 </div>
 
                 <h2 className="projects-title">APIs Favoritas</h2>
                 <div className="favorites-grid">
-                {usuario.favoritas.length > 0 ? (usuario.favoritas.map((api:any) => (
+                {usuario.favoritas?.length > 0 ? (usuario.favoritas.map((api:any) => (
                 <div className="favorite-card" key={api.id}>
                     <h3>{api.nomeApi}</h3>
                 </div>
