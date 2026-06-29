@@ -27,6 +27,10 @@ function Login(){
         });
     
         const data = await response.json();
+
+        console.log(response.status);
+        console.log(data);
+        
         if (response.ok) {
             setEmail("");
             setSenha("");
@@ -66,7 +70,6 @@ function Login(){
 
             <button type="submit" className="btn-secondary-form">Entrar</button>
             </form>
-
             <p className="btn-primary-form">Esqueceu sua senha?<Link to={"/RecupSenha"}> Recuperar</Link></p>
         </div>
         </section>

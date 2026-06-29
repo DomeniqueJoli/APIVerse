@@ -13,7 +13,6 @@ function Cadastro(){
     const [senha, setSenha] = useState("")
     const [recupSenha, setRecupSenha] = useState("")
     const [biografia, setBiografia] = useState("")
-    const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
 
     const [mensagem, setMensagem] = useState("");
     const [tipoMensagem, setTipoMensagem] = useState<"sucesso" | "erro" | "">("");
@@ -32,11 +31,6 @@ function Cadastro(){
 
     async function handleSubmit(e:React.FormEvent) {
         e.preventDefault();
-
-        if (!usuario.id) {
-            setMensagem("Usuário não logado");
-            return;
-        }
 
         if (senha !== recupSenha) {
             setTipoMensagem("erro");
@@ -61,11 +55,15 @@ function Cadastro(){
                 })
             });
 
-            await response.json(); 
+            const data = await response.json(); 
+
             if(response.ok){
                 setTipoMensagem("sucesso");
                 setMensagem("Cadastrado com sucesso!");
                 limparFormulario()
+            } else {
+                setTipoMensagem("erro");
+                setMensagem(data.erro || "Erro ao cadastrar usuário");
             }
         }
     }
