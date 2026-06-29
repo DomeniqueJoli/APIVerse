@@ -90,7 +90,12 @@
     border-radius: 10px;
     background: #f89408;
     font-weight: 600;
-    transition: .25s;
+    transition: filter 0.25s, transform 0.25s;
+}
+
+.api-doc:hover{
+  filter: brightness(1.15);
+  transform: translateY(-5px);
 }
 
 .api-actions {
@@ -109,6 +114,12 @@
     text-align: center;
     color: white;
     background: rgba(83, 20, 143, 0.353);
+    transition: filter 0.25s, transform 0.25s;
+}
+
+.api-use:hover{
+  filter: brightness(1.15);
+  transform: translateY(-5px);
 }
 
 .category-item-icon {

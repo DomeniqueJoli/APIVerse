@@ -132,6 +132,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center; 
+  transition: filter 0.25s, transform 0.25s;
+}
+
+.btn-primary:hover{
+  filter: brightness(1.15);
+  transform: translateY(-5px);
 }
 
 .btn-secondary{
@@ -140,6 +146,12 @@ body{
   padding:16px 45px;
   border-radius:15px;
   border:2px solid #6b2dff;
+  transition: filter 0.25s, transform 0.25s;
+}
+
+.btn-secondary:hover{
+  filter: brightness(1.15);
+  transform: translateY(-5px);
 }
 
 /****************************************************** footer *********************************************************/
