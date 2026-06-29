@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
 // user post
 app.post("/usuarios", async (req, res) => {
   try {
+      console.log("body recebido", req.body);
     const {
       nome, 
       email, 
@@ -43,10 +44,11 @@ app.post("/usuarios", async (req, res) => {
     });
 
     res.status(201).json(usuario);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      erro: "Erro ao cadastrar usuário",
+  }catch (error) {
+    console.error("erro no cads:", error);
+
+    return res.status(500).json({
+      erro: "Erro ao cadastrar usuário"
     });
   }
 });

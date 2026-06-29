@@ -29,7 +29,7 @@ function Cadastro(){
         setBiografia("");
     }
 
-    async function handleSubmit(e:React.FormEvent) {
+    async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
 
         if (senha !== recupSenha) {
@@ -38,11 +38,10 @@ function Cadastro(){
             return;
         }
 
-        if(senha === recupSenha){
-            const response = await fetch("https://apiverse-ypsu.onrender.com/usuarios",
-            {
+        try {
+            const response = await fetch("https://apiverse-ypsu.onrender.com/usuarios", {
                 method: "POST",
-                headers:{"Content-Type":"application/json"},
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     nome,
                     email,
@@ -55,16 +54,24 @@ function Cadastro(){
                 })
             });
 
-            const data = await response.json(); 
+            const data = await response.json();
 
-            if(response.ok){
+            console.log("status:", response.status);
+            console.log("resposta:", data);
+
+            if (response.ok) {
                 setTipoMensagem("sucesso");
                 setMensagem("Cadastrado com sucesso!");
-                limparFormulario()
+                limparFormulario();
             } else {
                 setTipoMensagem("erro");
                 setMensagem(data.erro || "Erro ao cadastrar usuário");
             }
+
+        } catch (error) {
+            console.error(error);
+            setTipoMensagem("erro");
+            setMensagem("Erro de conexão com o servidor");
         }
     }
 
