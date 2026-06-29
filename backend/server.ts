@@ -8,6 +8,11 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("API funcionando");
 });
@@ -332,6 +337,8 @@ app.get("/usuarios/:id/favoritos", async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log("Servidor rodando na porta 3000");
+const PORT = Number(process.env.PORT) || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
