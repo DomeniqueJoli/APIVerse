@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Styles/Cadastro.css"
 import Footer from "../Components/Layout/Footer";
 import { useState } from "react";
@@ -14,6 +14,7 @@ function Cadastro(){
     const [recupSenha, setRecupSenha] = useState("")
     const [biografia, setBiografia] = useState("")
 
+    const navigate = useNavigate();
     const [mensagem, setMensagem] = useState("");
     const [tipoMensagem, setTipoMensagem] = useState<"sucesso" | "erro" | "">("");
 
@@ -63,6 +64,7 @@ function Cadastro(){
                 setTipoMensagem("sucesso");
                 setMensagem("Cadastrado com sucesso!");
                 limparFormulario();
+                navigate("/Login");
             } else {
                 setTipoMensagem("erro");
                 setMensagem(data.erro || "Erro ao cadastrar usuário");
